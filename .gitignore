@@ -1,0 +1,15 @@
+# Target folders (Java)
+**/target/
+**/.mvn/
+**/mvnw
+**/mvnw.cmd
+
+# Node/Angular
+**/node_modules/
+**/dist/
+**/.angular/
+
+# IDEs
+**/.idea/
+**/.vscode/
+**/*.iml
