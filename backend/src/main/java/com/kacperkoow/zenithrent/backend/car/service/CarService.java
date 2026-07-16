@@ -24,20 +24,49 @@ public class CarService {
                 .collect(Collectors.toList());
     }
 
+    @Transactional(readOnly = true)
+    public CarResponse getCarById(Long id) {
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " not found"));
+        return mapToResponse(car);
+    }
+
     @Transactional
     public CarResponse createCar(CarCreateRequest request) {
         Car car = Car.builder()
                 .brand(request.brand())
                 .model(request.model())
-                .year(request.year())
+                .productionYear(request.productionYear())
                 .vin(request.vin())
                 .fuelType(request.fuelType())
                 .pricePerDay(request.pricePerDay())
-                .isAvailable(true) // Nowe auto jest domyślnie dostępne
+                .isAvailable(true)
                 .build();
 
         Car savedCar = carRepository.save(car);
         return mapToResponse(savedCar);
+    }
+
+    @Transactional
+    public CarResponse updateCar(Long id, CarCreateRequest request) {
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " not found"));
+
+        car.setBrand(request.brand());
+        car.setModel(request.model());
+        car.setProductionYear(request.productionYear());
+        car.setFuelType(request.fuelType());
+        car.setPricePerDay(request.pricePerDay());
+
+        Car updatedCar = carRepository.save(car);
+        return mapToResponse(updatedCar);
+    }
+
+    @Transactional
+    public void deleteCar(Long id) {
+        Car car = carRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Car with ID " + id + " not found"));
+        carRepository.delete(car);
     }
 
     private CarResponse mapToResponse(Car car) {
@@ -45,7 +74,7 @@ public class CarService {
                 car.getId(),
                 car.getBrand(),
                 car.getModel(),
-                car.getYear(),
+                car.getProductionYear(),
                 car.getFuelType(),
                 car.getPricePerDay(),
                 car.getIsAvailable()
