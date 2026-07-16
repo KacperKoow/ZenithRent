@@ -1,5 +1,9 @@
-package com.kacperkoow.zenithrent.backend.car;
+package com.kacperkoow.zenithrent.backend.car.service;
 
+import com.kacperkoow.zenithrent.backend.car.model.Car;
+import com.kacperkoow.zenithrent.backend.car.dto.CarCreateRequest;
+import com.kacperkoow.zenithrent.backend.car.repository.CarRepository;
+import com.kacperkoow.zenithrent.backend.car.dto.CarResponse;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;

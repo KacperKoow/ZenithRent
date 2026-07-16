@@ -1,5 +1,6 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.repository;
 
+import com.kacperkoow.zenithrent.backend.user.model.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 import java.util.Optional;

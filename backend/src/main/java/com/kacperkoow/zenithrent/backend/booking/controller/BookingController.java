@@ -1,5 +1,8 @@
-package com.kacperkoow.zenithrent.backend.booking;
+package com.kacperkoow.zenithrent.backend.booking.controller;
 
+import com.kacperkoow.zenithrent.backend.booking.dto.BookingRequest;
+import com.kacperkoow.zenithrent.backend.booking.dto.BookingResponse;
+import com.kacperkoow.zenithrent.backend.booking.service.BookingService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

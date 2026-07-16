@@ -1,7 +1,7 @@
-package com.kacperkoow.zenithrent.backend.booking;
+package com.kacperkoow.zenithrent.backend.booking.model;
 
-import com.kacperkoow.zenithrent.backend.car.Car;
-import com.kacperkoow.zenithrent.backend.user.User;
+import com.kacperkoow.zenithrent.backend.car.model.Car;
+import com.kacperkoow.zenithrent.backend.user.model.User;
 import jakarta.persistence.*;
 import lombok.*;
 

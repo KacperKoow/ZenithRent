@@ -1,4 +1,4 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.dto;
 
 public record RegisterRequest(
         String email,

@@ -1,6 +1,6 @@
 package com.kacperkoow.zenithrent.backend.auth;
 
-import com.kacperkoow.zenithrent.backend.user.UserRepository;
+import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

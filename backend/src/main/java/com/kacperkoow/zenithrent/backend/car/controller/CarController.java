@@ -1,5 +1,8 @@
-package com.kacperkoow.zenithrent.backend.car;
+package com.kacperkoow.zenithrent.backend.car.controller;
 
+import com.kacperkoow.zenithrent.backend.car.dto.CarCreateRequest;
+import com.kacperkoow.zenithrent.backend.car.dto.CarResponse;
+import com.kacperkoow.zenithrent.backend.car.service.CarService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

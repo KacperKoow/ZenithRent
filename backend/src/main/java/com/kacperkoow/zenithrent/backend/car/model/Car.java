@@ -1,4 +1,4 @@
-package com.kacperkoow.zenithrent.backend.car;
+package com.kacperkoow.zenithrent.backend.car.model;
 
 import jakarta.persistence.*;
 import lombok.*;
