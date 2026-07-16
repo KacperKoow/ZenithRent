@@ -8,30 +8,27 @@ import com.kacperkoow.zenithrent.backend.booking.repository.BookingRepository;
 import com.kacperkoow.zenithrent.backend.car.model.Car;
 import com.kacperkoow.zenithrent.backend.car.repository.CarRepository;
 import com.kacperkoow.zenithrent.backend.user.model.User;
-import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.math.BigDecimal;
 import java.time.temporal.ChronoUnit;
+import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor
 public class BookingService {
 
     private final BookingRepository bookingRepository;
-    private final UserRepository userRepository;
     private final CarRepository carRepository;
 
     @Transactional
-    public BookingResponse createBooking(BookingRequest request) {
+    public BookingResponse createBooking(BookingRequest request, User currentUser) {
         if (request.startDate().isAfter(request.endDate())) {
             throw new IllegalArgumentException("Start date cannot be after end date");
         }
-
-        User user = userRepository.findById(request.userId())
-                .orElseThrow(() -> new IllegalArgumentException("User not found"));
 
         Car car = carRepository.findById(request.carId())
                 .orElseThrow(() -> new IllegalArgumentException("Car not found"));
@@ -54,7 +51,7 @@ public class BookingService {
         BigDecimal totalPrice = car.getPricePerDay().multiply(BigDecimal.valueOf(days));
 
         Booking booking = Booking.builder()
-                .user(user)
+                .user(currentUser)
                 .car(car)
                 .startDate(request.startDate())
                 .endDate(request.endDate())
@@ -64,6 +61,20 @@ public class BookingService {
 
         Booking savedBooking = bookingRepository.save(booking);
         return mapToResponse(savedBooking);
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookingResponse> getAllBookings() {
+        return bookingRepository.findAll().stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
+    }
+
+    @Transactional(readOnly = true)
+    public List<BookingResponse> getMyBookings(Long userId) {
+        return bookingRepository.findByUserId(userId).stream()
+                .map(this::mapToResponse)
+                .collect(Collectors.toList());
     }
 
     private BookingResponse mapToResponse(Booking booking) {
