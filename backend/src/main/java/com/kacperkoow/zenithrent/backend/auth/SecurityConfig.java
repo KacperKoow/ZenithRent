@@ -3,6 +3,7 @@ package com.kacperkoow.zenithrent.backend.auth;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationProvider;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -25,6 +26,14 @@ public class SecurityConfig {
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers("/api/auth/**").permitAll()
+
+                        .requestMatchers(HttpMethod.GET, "/api/cars/**").permitAll()
+
+                        .requestMatchers(HttpMethod.GET, "/api/bookings").hasRole("EMPLOYEE")
+
+                        .requestMatchers(HttpMethod.POST, "/api/bookings").hasAnyRole("CUSTOMER", "EMPLOYEE")
+                        .requestMatchers(HttpMethod.GET, "/api/bookings/my").hasAnyRole("CUSTOMER", "EMPLOYEE")
+
                         .anyRequest().authenticated()
                 )
                 .sessionManagement(session -> session
