@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 public record CarCreateRequest(
         String brand,
         String model,
-        Integer year,
+        Integer productionYear,
         String vin,
         FuelType fuelType,
         BigDecimal pricePerDay
