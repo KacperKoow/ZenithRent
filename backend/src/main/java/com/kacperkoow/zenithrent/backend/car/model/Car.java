@@ -24,7 +24,7 @@ public class Car {
     private String model;
 
     @Column(nullable = false)
-    private Integer year;
+    private Integer productionYear;
 
     @Column(nullable = false, unique = true)
     private String vin;

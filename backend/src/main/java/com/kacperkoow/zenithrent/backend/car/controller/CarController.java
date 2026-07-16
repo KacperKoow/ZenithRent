@@ -22,9 +22,25 @@ public class CarController {
         return ResponseEntity.ok(carService.getAllCars());
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<CarResponse> getCarById(@PathVariable Long id) {
+        return ResponseEntity.ok(carService.getCarById(id));
+    }
+
     @PostMapping
     public ResponseEntity<CarResponse> createCar(@RequestBody CarCreateRequest request) {
         CarResponse createdCar = carService.createCar(request);
         return new ResponseEntity<>(createdCar, HttpStatus.CREATED);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<CarResponse> updateCar(@PathVariable Long id, @RequestBody CarCreateRequest request) {
+        return ResponseEntity.ok(carService.updateCar(id, request));
+    }
+
+    @DeleteMapping("/{id}")
+    public ResponseEntity<Void> deleteCar(@PathVariable Long id) {
+        carService.deleteCar(id);
+        return ResponseEntity.noContent().build();
     }
 }

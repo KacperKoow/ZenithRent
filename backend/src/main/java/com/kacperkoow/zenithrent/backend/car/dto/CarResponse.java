@@ -8,7 +8,7 @@ public record CarResponse(
         Long id,
         String brand,
         String model,
-        Integer year,
+        Integer productionYear,
         FuelType fuelType,
         BigDecimal pricePerDay,
         Boolean isAvailable
