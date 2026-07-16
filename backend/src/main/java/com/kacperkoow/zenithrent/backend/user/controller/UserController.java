@@ -1,5 +1,8 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.controller;
 
+import com.kacperkoow.zenithrent.backend.user.dto.RegisterRequest;
+import com.kacperkoow.zenithrent.backend.user.dto.UserResponse;
+import com.kacperkoow.zenithrent.backend.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

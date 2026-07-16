@@ -1,4 +1,6 @@
-package com.kacperkoow.zenithrent.backend.car;
+package com.kacperkoow.zenithrent.backend.car.dto;
+
+import com.kacperkoow.zenithrent.backend.car.model.FuelType;
 
 import java.math.BigDecimal;
 

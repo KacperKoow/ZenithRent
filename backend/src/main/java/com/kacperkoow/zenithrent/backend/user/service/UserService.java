@@ -1,5 +1,10 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.service;
 
+import com.kacperkoow.zenithrent.backend.user.dto.RegisterRequest;
+import com.kacperkoow.zenithrent.backend.user.model.Role;
+import com.kacperkoow.zenithrent.backend.user.dto.UserResponse;
+import com.kacperkoow.zenithrent.backend.user.model.User;
+import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;

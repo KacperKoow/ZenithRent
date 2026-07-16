@@ -1,7 +1,7 @@
 package com.kacperkoow.zenithrent.backend.auth;
 
-import com.kacperkoow.zenithrent.backend.user.User;
-import com.kacperkoow.zenithrent.backend.user.UserRepository;
+import com.kacperkoow.zenithrent.backend.user.model.User;
+import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;

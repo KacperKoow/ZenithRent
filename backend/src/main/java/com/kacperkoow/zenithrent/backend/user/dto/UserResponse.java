@@ -1,4 +1,6 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.dto;
+
+import com.kacperkoow.zenithrent.backend.user.model.Role;
 
 public record UserResponse(
         Long id,

@@ -1,4 +1,6 @@
-package com.kacperkoow.zenithrent.backend.booking;
+package com.kacperkoow.zenithrent.backend.booking.dto;
+
+import com.kacperkoow.zenithrent.backend.booking.model.BookingStatus;
 
 import java.math.BigDecimal;
 import java.time.LocalDate;

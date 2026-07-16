@@ -1,5 +1,6 @@
-package com.kacperkoow.zenithrent.backend.car;
+package com.kacperkoow.zenithrent.backend.car.repository;
 
+import com.kacperkoow.zenithrent.backend.car.model.Car;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

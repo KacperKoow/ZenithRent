@@ -1,4 +1,4 @@
-package com.kacperkoow.zenithrent.backend.user;
+package com.kacperkoow.zenithrent.backend.user.model;
 
 import jakarta.persistence.*;
 import lombok.*;

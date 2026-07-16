@@ -1,9 +1,14 @@
-package com.kacperkoow.zenithrent.backend.booking;
+package com.kacperkoow.zenithrent.backend.booking.service;
 
-import com.kacperkoow.zenithrent.backend.car.Car;
-import com.kacperkoow.zenithrent.backend.car.CarRepository;
-import com.kacperkoow.zenithrent.backend.user.User;
-import com.kacperkoow.zenithrent.backend.user.UserRepository;
+import com.kacperkoow.zenithrent.backend.booking.dto.BookingRequest;
+import com.kacperkoow.zenithrent.backend.booking.dto.BookingResponse;
+import com.kacperkoow.zenithrent.backend.booking.model.BookingStatus;
+import com.kacperkoow.zenithrent.backend.booking.model.Booking;
+import com.kacperkoow.zenithrent.backend.booking.repository.BookingRepository;
+import com.kacperkoow.zenithrent.backend.car.model.Car;
+import com.kacperkoow.zenithrent.backend.car.repository.CarRepository;
+import com.kacperkoow.zenithrent.backend.user.model.User;
+import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
