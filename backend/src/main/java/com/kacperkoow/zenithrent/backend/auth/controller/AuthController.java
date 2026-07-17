@@ -1,5 +1,10 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.controller;
 
+import com.kacperkoow.zenithrent.backend.auth.dto.LoginRequest;
+import com.kacperkoow.zenithrent.backend.auth.dto.LoginResponse;
+import com.kacperkoow.zenithrent.backend.auth.dto.RegisterRequest;
+import com.kacperkoow.zenithrent.backend.auth.dto.RegisterResponse;
+import com.kacperkoow.zenithrent.backend.auth.service.AuthService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

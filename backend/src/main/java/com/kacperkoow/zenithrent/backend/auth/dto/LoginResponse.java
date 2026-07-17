@@ -1,6 +1,6 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.dto;
 
-public record RegisterResponse(
+public record LoginResponse(
         String token,
         Long id,
         String email,

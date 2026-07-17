@@ -1,5 +1,9 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.service;
 
+import com.kacperkoow.zenithrent.backend.auth.dto.LoginRequest;
+import com.kacperkoow.zenithrent.backend.auth.dto.LoginResponse;
+import com.kacperkoow.zenithrent.backend.auth.dto.RegisterRequest;
+import com.kacperkoow.zenithrent.backend.auth.dto.RegisterResponse;
 import com.kacperkoow.zenithrent.backend.user.model.Role;
 import com.kacperkoow.zenithrent.backend.user.model.User;
 import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
