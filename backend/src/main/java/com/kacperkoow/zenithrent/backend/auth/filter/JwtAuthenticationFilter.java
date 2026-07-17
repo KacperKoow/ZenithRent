@@ -1,6 +1,6 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.filter;
 
-import com.kacperkoow.zenithrent.backend.auth.JwtService;
+import com.kacperkoow.zenithrent.backend.auth.service.JwtService;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;

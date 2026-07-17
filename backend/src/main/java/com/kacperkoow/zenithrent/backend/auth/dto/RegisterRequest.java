@@ -1,4 +1,4 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.dto;
 
 public record RegisterRequest(
         String firstName,

@@ -1,5 +1,6 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.config;
 
+import com.kacperkoow.zenithrent.backend.auth.filter.JwtAuthenticationFilter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

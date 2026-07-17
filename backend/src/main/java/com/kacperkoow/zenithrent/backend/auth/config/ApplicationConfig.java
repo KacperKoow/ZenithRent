@@ -1,4 +1,4 @@
-package com.kacperkoow.zenithrent.backend.auth;
+package com.kacperkoow.zenithrent.backend.auth.config;
 
 import com.kacperkoow.zenithrent.backend.user.repository.UserRepository;
 import lombok.RequiredArgsConstructor;
