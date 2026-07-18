@@ -8,6 +8,7 @@ import org.springframework.http.HttpMethod;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchy;
 import org.springframework.security.access.hierarchicalroles.RoleHierarchyImpl;
 import org.springframework.security.authentication.AuthenticationProvider;
+import org.springframework.security.config.annotation.method.configuration.EnableMethodSecurity;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
@@ -17,6 +18,7 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 
 @Configuration
 @EnableWebSecurity
+@EnableMethodSecurity
 @RequiredArgsConstructor
 public class SecurityConfig {
 
@@ -40,15 +42,22 @@ public class SecurityConfig {
                         .requestMatchers("/api/auth/**").permitAll()
                         .requestMatchers(HttpMethod.GET, "/api/cars/**").permitAll()
 
+                        .requestMatchers(HttpMethod.GET, "/api/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.POST, "/api/users").hasRole("ADMIN")
+                        .requestMatchers(HttpMethod.DELETE, "/api/users/**").hasRole("ADMIN")
+
                         .requestMatchers(HttpMethod.POST, "/api/cars/**").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.PUT, "/api/cars/**").hasRole("EMPLOYEE")
                         .requestMatchers(HttpMethod.DELETE, "/api/cars/**").hasRole("EMPLOYEE")
 
-                        .requestMatchers(HttpMethod.POST, "/api/bookings/**").hasRole("CUSTOMER")
                         .requestMatchers(HttpMethod.GET, "/api/bookings/my").hasRole("CUSTOMER")
-
-
                         .requestMatchers(HttpMethod.GET, "/api/bookings/**").hasRole("EMPLOYEE")
+
+
+                        .requestMatchers(HttpMethod.POST, "/api/bookings/**").hasRole("CUSTOMER")
+
+                        .requestMatchers(HttpMethod.GET, "/api/users/*").authenticated()
+                        .requestMatchers(HttpMethod.PUT, "/api/users/*").authenticated()
 
                         .anyRequest().authenticated()
                 )
