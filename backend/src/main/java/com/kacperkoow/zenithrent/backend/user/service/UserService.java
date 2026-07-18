@@ -36,6 +36,15 @@ public class UserService {
         return mapToUserResponse(user);
     }
 
+    public UserResponse getCurrentUser() {
+        String currentUserEmail = SecurityContextHolder.getContext().getAuthentication().getName();
+
+        User user = userRepository.findByEmail(currentUserEmail)
+                .orElseThrow(() -> new IllegalArgumentException("Current user session not found"));
+
+        return mapToUserResponse(user);
+    }
+
     public UserResponse createUser(UserCreateRequest request) {
         if (userRepository.existsByEmail(request.email())) {
             throw new IllegalArgumentException("User with email " + request.email() + " already exists");

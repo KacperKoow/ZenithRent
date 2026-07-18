@@ -32,6 +32,12 @@ public class UserController {
         return ResponseEntity.ok(userService.getUserById(id));
     }
 
+    @GetMapping("/me")
+    public ResponseEntity<UserResponse> getCurrentUser() {
+        UserResponse userResponse = userService.getCurrentUser();
+        return ResponseEntity.ok(userResponse);
+    }
+
     @PostMapping
     public ResponseEntity<UserResponse> createUser(@RequestBody UserCreateRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(userService.createUser(request));
