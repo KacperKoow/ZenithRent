@@ -1,7 +1,9 @@
 package com.kacperkoow.zenithrent.backend.booking.controller;
 
-import com.kacperkoow.zenithrent.backend.booking.dto.BookingRequest;
+import com.kacperkoow.zenithrent.backend.booking.dto.BookingUpdateRequest;
+import com.kacperkoow.zenithrent.backend.booking.dto.EmployeeBookingRequest;
 import com.kacperkoow.zenithrent.backend.booking.dto.BookingResponse;
+import com.kacperkoow.zenithrent.backend.booking.dto.UserBookingRequest;
 import com.kacperkoow.zenithrent.backend.booking.service.BookingService;
 import com.kacperkoow.zenithrent.backend.user.model.User;
 import lombok.RequiredArgsConstructor;
@@ -20,8 +22,19 @@ public class BookingController {
     private final BookingService bookingService;
 
     @PostMapping
-    public ResponseEntity<BookingResponse> createBooking(@RequestBody BookingRequest request, @AuthenticationPrincipal User currentUser) {
-        BookingResponse response = bookingService.createBooking(request, currentUser);
+    public ResponseEntity<BookingResponse> createBookingByUser(
+            @RequestBody UserBookingRequest request,
+            @AuthenticationPrincipal User currentUser
+    ) {
+        BookingResponse response = bookingService.createBookingByUser(request, currentUser);
+        return new ResponseEntity<>(response, HttpStatus.CREATED);
+    }
+
+    @PostMapping("/manage")
+    public ResponseEntity<BookingResponse> createBookingByEmployee(
+            @RequestBody EmployeeBookingRequest request
+    ) {
+        BookingResponse response = bookingService.createBookingByEmployee(request);
         return new ResponseEntity<>(response, HttpStatus.CREATED);
     }
 
@@ -35,5 +48,14 @@ public class BookingController {
             @AuthenticationPrincipal User currentUser
     ) {
         return ResponseEntity.ok(bookingService.getMyBookings(currentUser.getId()));
+    }
+
+    @PutMapping("/{id}/manage")
+    public ResponseEntity<BookingResponse> updateBookingByStaff(
+            @PathVariable Long id,
+            @RequestBody BookingUpdateRequest request
+    ) {
+        BookingResponse response = bookingService.updateBookingByStaff(id, request);
+        return ResponseEntity.ok(response);
     }
 }
