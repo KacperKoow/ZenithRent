@@ -13,3 +13,37 @@
 **/.idea/
 **/.vscode/
 **/*.iml
+
+# ==========================================
+# SYSTEM FILES
+# ==========================================
+.DS_Store
+Thumbs.db
+
+# ==========================================
+# FRONTEND (Angular)
+# ==========================================
+frontend/tmp/
+frontend/out-tsc/
+frontend/bazel-out/
+frontend/coverage/
+frontend/npm-debug.log*
+frontend/yarn-error.log*
+
+# IDEs & Editors
+.vscode/*
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+*.swp
+*.sublime-workspace
+
+# ==========================================
+# BACKEND (Spring Boot / Maven / Gradle)
+# ==========================================
+backend/build/
+backend/.gradle/
+backend/*.jar
+backend/*.war
+backend/*.class
