@@ -1,0 +1,33 @@
+.footer-toolbar {
+  background-color: var(--primary-color) !important;
+  color: #94a3b8 !important;
+  font-size: 0.9rem !important;
+  height: auto !important;
+  padding: 1rem 0 !important;
+  margin-top: auto;
+  border-top: 1px solid #1e293b;
+
+  .footer-container {
+    width: 100%;
+    padding: 0 2.5rem;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    p {
+      margin: 0;
+    }
+  }
+
+  .footer-links {
+    a {
+      color: #94a3b8 !important;
+      font-size: 0.85rem !important;
+
+      &:hover {
+        color: white !important;
+      }
+    }
+  }
+}

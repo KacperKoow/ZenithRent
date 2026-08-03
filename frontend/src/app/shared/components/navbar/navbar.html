@@ -1,0 +1,50 @@
+<mat-toolbar class="navbar-toolbar">
+  <div class="nav-container">
+    <a routerLink="/" class="brand-logo">
+      <mat-icon class="logo-icon">directions_car</mat-icon>
+      <span>Zenith</span>Rent
+    </a>
+
+    <div class="right-nav">
+      <div class="nav-links">
+        <a mat-button routerLink="/home" routerLinkActive="active-link">Fleet</a>
+        <a mat-button routerLink="/pricing" routerLinkActive="active-link">Pricing</a>
+        <a mat-button routerLink="/about" routerLinkActive="active-link">About Us</a>
+        <a mat-button routerLink="/user" routerLinkActive="active-link">My Bookings</a>
+
+        @if (authService.currentUser(); as user) {
+          @if (user.role === 'ADMIN' || user.role === 'EMPLOYEE') {
+            <a mat-button routerLink="/employee" routerLinkActive="active-link">Fleet Operations</a>
+          }
+
+          @if (user.role === 'ADMIN') {
+            <a mat-button routerLink="/admin" routerLinkActive="active-link">Admin Dashboard</a>
+          }
+        }
+      </div>
+
+      <div class="auth-section">
+        @if (authService.currentUser(); as user) {
+          <div class="user-profile">
+            <mat-icon class="user-icon">account_circle</mat-icon>
+            <span class="user-name">{{ user.firstName }} {{ user.lastName }}</span>
+
+            <mat-chip [class]="'role-chip ' + user.role.toLowerCase()">
+              {{ user.role }}
+            </mat-chip>
+
+            <button mat-stroked-button color="warn" (click)="onLogout()" class="btn-logout">
+              <mat-icon>logout</mat-icon>
+              Log Out
+            </button>
+          </div>
+        } @else {
+          <a mat-flat-button color="primary" routerLink="/login" class="btn-login">
+            <mat-icon>login</mat-icon>
+            Sign In
+          </a>
+        }
+      </div>
+    </div>
+  </div>
+</mat-toolbar>
